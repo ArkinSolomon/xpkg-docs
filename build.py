@@ -36,6 +36,8 @@ def fileNameToTitle(name: str) -> str:
   for word in splitStr:
     if word == 'xpkg':
       word = 'X-Pkg'
+    if word == 'api':
+      word = 'API'
     elif not word in ['and', 'the', 'but', 'of', 'for']:
       word = word.capitalize()
     finalWord.append(word)    
@@ -63,6 +65,7 @@ os.makedirs(output_dir)
 # Insert order of subdirectories here
 processSubdir('package-developers')
 processSubdir('xpkg-developers')
+processSubdir('registry-api')
 
 for file in root_copy_files: 
   shutil.copyfile(src_dir + file, output_dir + file)
