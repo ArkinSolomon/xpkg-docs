@@ -1,0 +1,7 @@
+- [Package Developers](package-developers.md)
+  * [Packaging](packaging.md)
+  * [Dependency Resolution](dependency-resolution.md)
+  * [Distribution](distribution.md)
+- [X-Pkg Developers](xpkg-developers.md)
+  * [Environment Variables](environment-variables.md)
+  * [Jobs Service](jobs-service.md)
