@@ -19,7 +19,7 @@ Here are some example versions.
 - `4.0.3b51` -- Read as "4 point 0 point 3, beta 51"
 - `9.2.0r4` -- Read as "9 point 2 point 0, release-candidate 4"
 
-## Ordering of Versions
+## Version Ordering
 
 Versions are ordered first by their major versions, then by their minor versions, and then by their patch versions. All pre-release versions are below their semantic part, but above the previous semantic part. For instance, the version `1.5.2b3` is less than version `1.5.2`, but greater than version `1.5.1`. For pre-release versions, release-candidates are greater than beta versions, which are greater than alpha versions. For instance, the following list is in order from greatest to least:
 
@@ -35,4 +35,6 @@ Versions are ordered first by their major versions, then by their minor versions
 - `4.2.0a1`
 - `4.1.5`
 
-## 
+## Version Completion
+
+You may omit different parts of a version, and it will be automatically completed (assumed). If you only provide a major version, both the minor versions and patch versions are assumed be zero. Likewise, if you only provide a major and minor version, the patch number is assumed to be zero. You can not provide a minor version without providing a major version, and likewise a patch version can not be provided without providing a major version. Pre-release versions and types must be explicitly stated and can not be assumed.
