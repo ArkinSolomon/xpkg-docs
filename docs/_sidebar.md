@@ -3,6 +3,8 @@
   - [Versioning](package-developers/versioning.md)
   - [Version Selection](package-developers/version-selection.md)
 - [X-pkg Developers](xpkg-developers/README.md)
+  - [Package Types](xpkg-developers/file-types.md)
+  - [Package Manifest](xpkg-developers/package-manifest.md)
   - [Environment Variables](xpkg-developers/environment-variables.md)
   - [Jobs Service](xpkg-developers/jobs-service.md)
 - [Registry API](registry-api/README.md)
