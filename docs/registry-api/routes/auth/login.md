@@ -10,7 +10,7 @@ Rate limit: 5 requests every 3 seconds.
 ## Request
 
 - Content type: `application/json`
-- Authorization header: **No**
+- Authorization: **No**
 
 Request body:
 

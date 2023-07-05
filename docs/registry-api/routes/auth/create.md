@@ -9,7 +9,7 @@ Rate limit: 5 requests every 3 seconds.
 ## Request
 
 - Content type: `application/json`
-- Authorization header: **No**
+- Authorization: **No**
 
 Request body:
 
@@ -78,7 +78,7 @@ A single word: "email" if the email is already in use, or "name" if the name is 
 
 Sample response:
 
-```
+```text
 email
 ```
 

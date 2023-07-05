@@ -12,5 +12,7 @@
   - [Status Codes](registry-api/status-codes.md)
   - [Custom Headers](registry-api/custom-headers.md)
   - [Rate Limits](registry-api/rate-limits.md)
+  - [PATCH `/account/changename`](registry-api/routes/account/changename.md)
+  - [GET `/account/data`](registry-api/routes/account/data.md)
   - [POST `/auth/create`](registry-api/routes/auth/create.md)
   - [POST `/auth/login`](registry-api/routes/auth/login.md)

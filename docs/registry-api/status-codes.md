@@ -1,6 +1,8 @@
 # Status Codes
 
-This page contains general status codes that are not explained in the documentation all the time. They typically follow [standard HTTP status code definitions](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status), however, some routes may provide additional information with or clarification on these status codes, and will be explained there. If no response body for a route is described, the contents of the response are irrelevant.
+This page contains general status codes that are not explained in the documentation all the time. They typically follow [standard HTTP status code definitions](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status), however, some routes may provide additional information with or clarification on these status codes, and will be explained there. If no response body for a route is described, the contents of the response are irrelevant. All `200` level responses will be at least described.
+
+> Status codes under "Other responses" that are surrounded by brackets indicate that the status code is not directly in the path of code execution, but may be sent abnormally.
 
 ## Status Code `200`
 
@@ -16,7 +18,7 @@ The are request was missing form fields, or had invalid data passed into it. Som
 
 ## Status Code `401`
 
-The requester was not authorized to perform an action. An authorization token may be required.
+The requester was not authorized to perform an action. An authorization token may be required, or the token provided may have insufficient permissions. Routes that require authorization show "No" if no token needs to be provided, or they show the permissions required.
 
 ## Status Code `403`
 
