@@ -40,6 +40,10 @@ Sample request:
 
 Sent if the verification token is valid, and if the author has not already verified their email.
 
+## `400` Response
+
+Sent if no reCAPTCHA validation was provided.
+
 ## `401` Response
 
 Sent if the verification token is invalid (or expired).

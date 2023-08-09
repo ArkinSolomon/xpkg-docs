@@ -30,7 +30,7 @@ Sent if what was requested was not found, or if the requested resource is otherw
 
 ## Status Code `409`
 
-See the page on [rate limits](/registry-api/rate-limits.md) for information about this status code.
+Status sent if no valid IP address or author identifier is found to keep track of rate limiting.
 
 ## Status Code `418` 
 
@@ -38,7 +38,7 @@ This response is sent if a route protected by reCAPTCHA assumes you are a bot.
 
 ## Status Code `429`
 
-See the page on [rate limits](/registry-api/rate-limits.md) for information about this status code.
+Sent if too many requests are sent and the client is being rate limited.
 
 ## Status Code `500`
 
