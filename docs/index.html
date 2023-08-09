@@ -7,9 +7,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="description" content="Description">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/sidebar.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/sidebar.min.css" />
+    <script src="https://code.jquery.com/jquery-3.7.0.slim.min.js"
+      integrity="sha256-tG5mcZUtJsZvyKAxYLVXrmjKBVLd6VpVccqz/r4ypFE=" crossorigin="anonymous"></script>
 
+    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="/_media/icons/apple-touch-icon-57x57.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/_media/icons/apple-touch-icon-114x114.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/_media/icons/apple-touch-icon-72x72.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/_media/icons/apple-touch-icon-144x144.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="60x60" href="/_media/icons/apple-touch-icon-60x60.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="/_media/icons/apple-touch-icon-120x120.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="76x76" href="/_media/icons/apple-touch-icon-76x76.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="/_media/icons/apple-touch-icon-152x152.png" />
+    <link rel="icon" type="image/png" href="/_media/icons/favicon-196x196.png" sizes="196x196" />
+    <link rel="icon" type="image/png" href="/_media/icons/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/png" href="/_media/icons/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="/_media/icons/favicon-16x16.png" sizes="16x16" />
+    <link rel="icon" type="image/png" href="/_media/icons/favicon-128.png" sizes="128x128" />
+    <link rel="icon" type="image/x-icon" href="/_media/icons/favicon.ico">
 
     <!-- General styles -->
     <style>
@@ -20,8 +36,23 @@
       .folder.level-1>a {
         font-weight: bolder;
       }
-    </style>
 
+      .app-name-link>img {
+        max-width: 85%;
+      }
+
+      /* Table headers are appended to every line without this, see https://github.com/docsifyjs/docsify/issues/794 */
+      td::before {
+        display: none
+      }
+
+      /* Centering tables */
+      .table-wrapper table {
+        margin-left: auto;
+        margin-right: auto;
+        width: fit-content;
+      }
+    </style>
 
     <!-- Light mode styles (for code only) -->
     <style>
@@ -58,6 +89,9 @@
     <style>
       body.dark {
         --page-background-color: #292e3c;
+        --sidebar-background-color: #242834;
+
+        --odd-table-row-bg: #1f2430;
 
         --text-color: #cfd5e3;
         --bold-text-color: #e4e7f2;
@@ -84,7 +118,11 @@
         --code-theme-variable: #ffcb6b;
       }
 
-      body.dark .sidebar,
+      body.dark .sidebar-toggle,
+      body.dark .sidebar {
+        background-color: var(--sidebar-background-color, --page-background-color);
+      }
+
       body.dark {
         background-color: var(--page-background-color);
         color: var(--text-color);
@@ -122,16 +160,17 @@
         color: var(--bold-text-color);
       }
 
-      body.dark .sidebar-toggle {
-        background-color: var(--page-background-color);
-      }
-
       body.dark .sidebar-toggle-button span {
         background-color: var(--bold-text-color);
       }
 
       body.dark .sidebar-toggle-button span:hover {
         background-color: var(--text-color);
+      }
+
+      .markdown-section p.tip,
+      .markdown-section tr:nth-child(2n) {
+        background-color: var(--odd-table-row-bg);
       }
     </style>
 
@@ -289,18 +328,6 @@
         cursor: help
       }
     </style>
-
-    <!-- Footer styles -->
-    <style>
-      footer p {
-        text-align: center;
-        margin-top: 0 !important;
-      }
-
-      footer hr {
-        margin-bottom: 1em !important;
-      }
-    </style>
   </head>
 
   <body>
@@ -312,15 +339,16 @@
         loadSidebar: true,
         subMaxLevel: 3,
         sidebarDisplayLevel: 0,
-        loadFooter: '_footer.html'
+        loadFooter: '_footer.html',
+        logo: '/_media/sidebar-light.png'
       }
     </script>
 
-    <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
-    <script src="//cdn.jsdelivr.net/npm/docsify-themeable@0/dist/js/docsify-themeable.min.js"></script>
-    <script src="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/docsify-sidebar-collapse.min.js"></script>
-    <script src="//cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-json.min.js"></script>
-    <script src="//cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-typescript.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/docsify@4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/js/docsify-themeable.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/docsify-sidebar-collapse.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-json.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-uri.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@alertbox/docsify-footer@1.0.0-0/dist/docsify-footer.min.js"
       integrity="sha256-IOPDTfgrbdv3T2SsvUgc5ThEVyAFn7BP8lydleTUTB0=" crossorigin="anonymous"></script>
 
@@ -329,8 +357,12 @@
       const isDarkMode = () =>
         window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
 
-      if (isDarkMode())
+      if (isDarkMode()) {
         document.querySelector('body').classList.add('dark');
+        $('.app-name-link>img').ready(function () {
+          console.log($('.app-name-link img').attr('src', '/_media/sidebar-dark.png'))
+        });
+      }
     </script>
   </body>
 

@@ -1,7 +1,7 @@
 
 # POST `/auth/login`
 
-> Note: This route is protected by reCAPTCHA, and should not be used except by the X-Pkg developer portal.
+> This route is protected by reCAPTCHA, and should not be used except by the X-Pkg developer portal.
 
 Attempt to login with an email and password to an existing author's account, and retrieve an authorization token, which expires in six hours. To create an author account, use [`/auth/create`](/registry-api/routes/auth/create) instead.
 
@@ -10,7 +10,7 @@ Rate limit: 5 requests every 3 seconds.
 ## Request
 
 - Content type: `application/json`
-- Authorization: **No**
+- Authorization: **None**
 
 Request body:
 

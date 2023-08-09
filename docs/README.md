@@ -1,4 +1,4 @@
-# X-Pkg
+# X-Pkg Documentation
 
 ## What is X-Pkg
 

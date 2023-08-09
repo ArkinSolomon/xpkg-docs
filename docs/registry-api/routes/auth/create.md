@@ -1,6 +1,6 @@
 # POST `/auth/create`
 
-> Note: This route is protected by reCAPTCHA, and should not be used except by the X-Pkg developer portal.
+> This route is protected by reCAPTCHA, and should not be used except by the X-Pkg developer portal.
 
 Attempt to create a new author account. The email is case-insensitive and is required to be unique. The name must is stored in the given case, however may not match any other author's name (regardless of case). Returns an authorization token which will expire in six hours. If an author already has an account, use [`/auth/login`](/registry-api/routes/auth/login) instead. 
 
@@ -9,7 +9,7 @@ Rate limit: 5 requests every 3 seconds.
 ## Request
 
 - Content type: `application/json`
-- Authorization: **No**
+- Authorization: **None**
 
 Request body:
 
@@ -74,7 +74,8 @@ Sent if the email, or display name (both case-insensitive) are already in use.
 
 Response body:
 
-A single word: "email" if the email is already in use, or "name" if the name is already in use.
+- "email" -- sent if the email is already in use.
+- "name" -- sent if the name is already in use.
 
 Sample response:
 

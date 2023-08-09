@@ -24,6 +24,10 @@ The requester was not authorized to perform an action. An authorization token ma
 
 Typically sent when an requestor is not allowed to perform a certain action, though they may be authorized.
 
+## Status Code `404`
+
+Sent if what was requested was not found, or if the requested resource is otherwise inaccessible.
+
 ## Status Code `409`
 
 See the page on [rate limits](/registry-api/rate-limits.md) for information about this status code.

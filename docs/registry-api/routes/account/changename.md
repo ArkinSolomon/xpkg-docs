@@ -1,6 +1,6 @@
 # PATCH `/account/changename`
 
-> Note: This route is protected by reCAPTCHA, and should not be used except by the X-Pkg developer portal.
+> This route is protected by reCAPTCHA, and should not be used except by the X-Pkg developer portal.
 
 Update the author's publicly available name. The author's name can only be updated once every thirty days (that is, thirty days since the last name change). There is no minumum time that must pass since account creation for the author to change their name.
 
@@ -9,7 +9,7 @@ Rate limit: 3 requests every 5 seconds.
 ## Request
 
 - Content type: `application/json`
-- Authorization: **UpdateAuthorData**
+- Authorization: **Admin**
 
 Request body:
 
