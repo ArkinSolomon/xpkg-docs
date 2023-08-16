@@ -22,7 +22,7 @@ Request body:
 - packageId
   - Type: `string`
   - Requied: **Yes**
-  - Description: The identifier of the new package. Whitespace on the edges will be trimmed, and will be converted to lowercase. Must be between 6 and 32 characters long (inclusive).
+  - Description: The partial identifier of the new package. Whitespace on the edges will be trimmed, and will be converted to lowercase. Must be between 6 and 32 characters long (inclusive).
 - description
   - Type: `string`
   - Required: **Yes**
@@ -66,7 +66,7 @@ Response body:
 - "invalid_package_type" -- the `packageType` field does not contain a valid enumeration value.
 - "short_id" -- the package identifier is too short.
 - "long_id" -- the package identifier is too long.
-- "invalid_id" -- the package identifier is invalid.
+- "invalid_id" -- the package identifier is invalid, or is a full identifier.
 - "short_name" -- the package name is too short.
 - "long_name" -- the package name is too long.
 - "short_desc" -- the provided description is too short.

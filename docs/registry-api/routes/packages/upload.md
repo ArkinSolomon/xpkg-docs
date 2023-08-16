@@ -38,11 +38,11 @@ Request body:
 - dependencies
   - Type: `STR<[string, string][]>`
   - Required: **Yes**
-  - Description: A JSON string which is an array of tuples, where the first element of each tuple is the id of the package which is a dependency, and the second element is the version selection string that the dependency must satisfy.
+  - Description: A JSON string which is an array of tuples, where the first element of each tuple is the full identifier of the package which is a dependency, and the second element is the version selection string that the dependency must satisfy. Partial identifiers will have the `xpkg/` repository prefixed. Maximum length of 128 tuples.
 - incompatibilities
   - Type: `STR<[string, string][]>`
   - Required: **Yes**
-  - Description: A JSON string which is an array of tuples, where the first element of each tuple is the id of the package which is incompatbile, and the second element is the version selection string of all versions that are incompatible.
+  - Description: A JSON string which is an array of tuples, where the first element of each tuple is the full identifier of the package which is incompatible, and the second element is the version selection string of all versions that are incompatible. Partial identifiers will have the `xpkg/` repository prefixed. Maximum length of 128 tuples.
 - file
   - Type: `file`
   - Required: **Yes**
@@ -115,6 +115,9 @@ Response body:
 - "empty_xp_sel" -- the X-Plane version selection string is empty.
 - "long_xp_sel" -- the X-Plane version selection string is too long.
 - "invalid_xp_sel" -- the X-Plane version selection string is invalid.
+- "list_not_arr" -- either of the lists provided (or both lists) are not arrays.
+- "too_many_deps" -- too many dependencies provided.
+- "too_many_incs" -- too many incompatibilities provided.
 - "vesion_exists" -- the package with the given identifier already has the specified version.
 
 ## `403` Response

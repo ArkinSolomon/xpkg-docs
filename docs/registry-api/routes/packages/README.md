@@ -17,7 +17,11 @@ Sent on every request that does not exceed the rate limit. Contains information 
 
 Response body:
 
-- data
+- generated
+  - Type: `string`
+  - Required: **Yes**
+  - Description: The ISO string of the date at which the package list finished generating.
+- packages
   - Type: `object[]`
   - Required: **Yes**
   - Description: All of the registry packages, and their versions.
@@ -46,26 +50,48 @@ Response body:
       - Required: **Yes**
       - Description: The type of the package.
     - versions
-      - Type: `string[]`
+      - Type: `Object[]`
       - Required: **Yes**
-      - Description: An array of all of the available versions of the package.
+      - Description: An array of all of the available versions of the package, and the version's data.
+        - version
+          - Type: `string`
+          - Required: **Yes**
+          - Description: The version string of the version.
+        - dependencies
+          - Type: `[string, string][]`
+          - Required: **Yes**
+          - Description: An array of tuples, where the first element of each tuple is the id of the package which is a dependency, and the second element is the version selection string that the dependency must satisfy.
+        - incompatibilities
+          - Type: `[string, string][]`
+          - Required: **Yes**
+          - Description: An array of tuples, where the first element of each tuple is the id of the package which is incompatbile, and the second element is the version selection string of all versions that are incompatible.
+        - xplaneSelection
+          - Type: `string`
+          - Required: **Yes**
+          - Description: The version selection string of the X-Plane versions that this package is compatible with.
 
 Sample response:
 
 ```json
 {
-  "data": [
+  "generated": "2023-08-09T19:17:21.095Z",
+  "packages": [
     {
       "packageId": "example.package1",
       "packageName": "Example Package 1",
       "authorId": "GPew5C4M1688712972",
       "authorName": "Example Account",
-      "description": "A cool example package!",
+      "description": "Example package 1",
       "packageType": "other",
       "versions": [
-        "1.2.3",
-        "1.2.1",
-        "1.0.0a-4"
+        {
+          "version": "1.3.0b12",
+          "dependencies": [
+            ["example.package2", "1.2-"]
+          ],
+          "incompatibilities": [],
+          "xplaneSelection": "*"
+        }
       ]
     }
   ]
@@ -74,4 +100,4 @@ Sample response:
 
 ## Other Responses
 
-`409`, `429`
+`409`, `429`, [`500`]

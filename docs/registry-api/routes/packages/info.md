@@ -11,8 +11,8 @@ Rate limit: 10 requests every 2 seconds.
 
 Route parameters:
 
-- `packageId` -- The id of the package to get the information of.
-- `version` -- The version of the package to get the information of.
+- `packageId` -- the partial identifier of the package to get the information of.
+- `version` -- the version of the package to get the information of.
 
 Sample route:
 
@@ -36,18 +36,19 @@ Response body:
   - Type: `string`
   - Required: **Yes**
   - Description: The SHA256 hash of the X-Pkg file.
-- dependencies
-  - Type: `[string, string][]`
-  - Required: **Yes**
-  - Description: An array of tuples, where the first element of each tuple is the id of the package which is a dependency, and the second element is the version selection string that the dependency must satisfy.
-- incompatibilities
-  - Type: `[string, string][]`
-  - Required: **Yes**
-  - Description: An array of tuples, where the first element of each tuple is the id of the package which is incompatbile, and the second element is the version selection string of all versions that are incompatible.
 
 Sample response:
 
-***TODO***
+```json
+{
+  "loc": "https://d2cbjuk8vv1874.cloudfront.net/_40fZRpg5ZfQ7j_ANZ5J06-9Mz4QSycT5tSQ4WoVloilYOarVgYBSOQF3yENutSZ",
+  "hash": "37dce52e27cbf572bd391d15ff891ae1a27ea7031166e5c86ed1e4f7e48d68a9",
+  "dependencies": [
+    ["example.package2", "1.2-"]
+  ],
+  "incompatibilities": []
+}
+```
 
 ## `400` Response
 

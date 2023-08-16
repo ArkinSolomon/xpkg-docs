@@ -25,11 +25,15 @@ The schema of the token's payload is as follows:
 - descriptionUpdatePackages
   - Type: `string[]`
   - Required: **Yes** 
-  - A list of package identifiers (that the author owns) which the bearer of the token has permission to update the description of. Empty if the [UpdateDescriptionAnyPackage](/package-developers/api-tokens#UpdateDescriptionAnyPackage) permission is not granted.
+  - A list of package identifiers (that the author owns) which the bearer of the token has permission to update the description of. Empty if the [UpdateDescriptionSpecificPackages](/package-developers/api-tokens#UpdateDescriptionSpecificPackages) permission is not granted.
+- updateVersionDataPackages
+  - Type: `string[]`
+  - Required: **Yes** 
+  - A list of package identifiers (that the author owns) which the bearer of the token has permission to update the version data of of. Empty if the [UpdateVersionDataSpecificPackages](/package-developers/api-tokens#UpdateVersionDataSpecificPackages) permission is not granted.
 - tokenSession
   - Type: `string`
   - Required: **No**
-  - Description: The session of the token. Only provided on issued tokens.
+  - Description: The session of the token. Only provided on issued tokens (see next section).
 
 ## Admin Tokens & Issued Tokens
 
@@ -62,6 +66,8 @@ Here is every permission along with its offset:
 | UpdateAuthorData                  |   8    |
 | ViewPackages                      |   9    |
 | ViewResources                     |   10   |
+| UpdateVersionDataAnyPackage       |   11   |
+| UpdateVersionDataSpecificPackages |   12   |
 
 ## Example
 
@@ -84,24 +90,27 @@ Its payload is as follows:
     "example.package1",
     "example.package2"
   ],
+  "updateVersionDataPackages": []
 }
 ```
 
 Since the token sesssion is provided, we know that this is an API token. The permissions number (658) in binary is as follows:
 
 ```text
-0 1 0 1 0 0 1 0 0 1 0 = 658
-│ │ │ │ │ │ │ │ │ │ └─ Admin (not set)
-│ │ │ │ │ │ │ │ │ └─── CreatePackage (set)
-│ │ │ │ │ │ │ │ └───── UploadVersionAnyPackage (not set)
-│ │ │ │ │ │ │ └─────── UpdateDescriptionAnyPackage (not set)
-│ │ │ │ │ │ └───────── UploadVersionSpecificPackages (set)
-│ │ │ │ │ └─────────── UpdateDescriptionSpecificPackages (not set)
-│ │ │ │ └───────────── UploadResources (not set)
-│ │ │ └─────────────── ReadAuthorData (set)
-│ │ └───────────────── UpdateAuthorData (not set)
-│ └─────────────────── ViewPackages (set)
-└───────────────────── ViewResources (not set)
+0 0 0 1 0 1 0 0 1 0 0 1 0 = 658
+│ │ │ │ │ │ │ │ │ │ │ │ └─ Admin (not set)
+│ │ │ │ │ │ │ │ │ │ │ └─── CreatePackage (set)
+│ │ │ │ │ │ │ │ │ │ └───── UploadVersionAnyPackage (not set)
+│ │ │ │ │ │ │ │ │ └─────── UpdateDescriptionAnyPackage (not set)
+│ │ │ │ │ │ │ │ └───────── UploadVersionSpecificPackages (set)
+│ │ │ │ │ │ │ └─────────── UpdateDescriptionSpecificPackages (not set)
+│ │ │ │ │ │ └───────────── UploadResources (not set)
+│ │ │ │ │ └─────────────── ReadAuthorData (set)
+│ │ │ │ └───────────────── UpdateAuthorData (not set)
+│ │ │ └─────────────────── ViewPackages (set)
+│ │ └───────────────────── ViewResources (not set)
+│ └─────────────────────── UpdateVersionDataAnyPackage (not set)
+└───────────────────────── UpdateVersionDataSpecificPackages (not set)
 ```
 
 After decoding the permissions number, we can see that this token has permission to create packages, upload new versions to the packages `example.package1` and `example.package2`, as well as viewing the author's account information, as well as listing all of the author's packages.

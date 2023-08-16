@@ -41,3 +41,11 @@ The bearer of the token may list and view all author packages, and versions, and
 ### ViewResources
 
 The bearer of the token may list and view all resources.
+
+### UpdateVersionDataAnyPackage
+
+The bearer of the token may update the X-Plane selection as well as the incompatibilities of a package. Note that all versions of all packages may be updated by the bearer of the token.
+
+### UpdateVersionDataSpecificPackages
+
+The bearer of the token may update the X-Plane selection as well as the incompatibilities of specified packages. Note that all versions of the specified packages may be updated by the bearer of the token.

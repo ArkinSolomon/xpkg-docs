@@ -20,4 +20,4 @@ The worker is always trusted above the jobs server. Any incorrect failures shoul
 
 ## Aborting Jobs
 
-Any jobs that are not completed within three hours will be sent an abort signal from the jobs service via a `abort` event. The worker must abort the job immediately after recieving it. If the jobs service does not recieve an an `aborting` event within five seconds, the job will be failed by the service. Jobs are only checked for their durations every hour, ninety seconds after the service starts. This is to allow jobs to be claimed in case the server is down for an exceptionally long period of time.
+Any jobs that are not completed within three hours will be sent an abort signal from the jobs service via a `abort` event. The worker must abort the job immediately after recieving it. If the jobs service does not recieve an an `aborting` event within five seconds, the job will be failed by the service. Jobs are only checked for their durations every hour, ninety seconds after the service starts. The ninety-second delay exists in order to allow jobs to be claimed in case the service is down for an exceptionally long period of time.

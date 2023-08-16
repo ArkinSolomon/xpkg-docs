@@ -18,7 +18,7 @@ Request body:
 - packageId
   - Type `string`
   - Required: **Yes**
-  - Description: The package identifier to update the description of.
+  - Description: The full or partial package identifier to update the description of.
 
 Sample request:
 
@@ -45,7 +45,7 @@ Response body:
 - "no_id" -- sent if the `packageId` field is missing from the request body, or if the field value is an invalid type.
 - "short_desc" -- sent if the new description is too short.
 - "long_desc" -- sent if the new description is too long.
-- "invalid_id" -- sent if the package identifier provided is invalid.
+- "invalid_id" -- sent if the package identifier provided is invalid or if the full package identifier refers to a different repository.
 
 Sample response:
 
