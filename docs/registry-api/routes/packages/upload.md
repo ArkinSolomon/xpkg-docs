@@ -110,7 +110,7 @@ Response body:
 - "invalid_id" -- the provided package identifier is invalid.
 - "no_version" -- no package version was provided.
 - "long_version" -- the package version provided is too long.
-- "invalid_version" -- the package version provided is invalid.
+- "invalid_version" -- the package version provided is invalid (a blank string).
 - "invalid_access_config" -- the access configuration (`isPublic`, `isPrivate`, and `isStored` fields) was invalid.
 - "empty_xp_sel" -- the X-Plane version selection string is empty.
 - "long_xp_sel" -- the X-Plane version selection string is too long.
@@ -119,6 +119,12 @@ Response body:
 - "too_many_deps" -- too many dependencies provided.
 - "too_many_incs" -- too many incompatibilities provided.
 - "vesion_exists" -- the package with the given identifier already has the specified version.
+
+Sample response:
+
+```text
+missing_form_data
+```
 
 ## `403` Response
 
