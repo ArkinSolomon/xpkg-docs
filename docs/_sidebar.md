@@ -27,5 +27,7 @@
   - [GET `/packages/info/`](registry-api/routes/packages/info.md)
   - [POST `/packages/new/`](registry-api/routes/packages/new.md)
   - [POST `/packages/upload/`](registry-api/routes/packages/upload.md)
+  - [POST `/packages/retry/`](registry-api/routes/packages/retry.md)
   - [PATCH `/packages/description/`](registry-api/routes/packages/description.md)
   - [PATCH `/packages/incompatibilities/`](registry-api/routes/packages/incompatibilities.md)
+  - [PATCH `/packages/xpselection/`](registry-api/routes/packages/xpselection.md)

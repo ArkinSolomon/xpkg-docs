@@ -62,6 +62,13 @@ Sample response:
 
 Sent if part of the request body is missing.
 
+- Content-type: `text/plain`
+
+- "invalid_or_empty_str" -- sent if any field is not a string, or is an empty string.
+- "bad_len" -- sent if any field violates the given length constraints.
+- "bad_email" -- sent if the provided email address is invalid.
+- "is_password" -- sent if the provided password is any case variation of "password".
+
 ## `401` Response
 
 Sent if an author does not exist with the given email, or if an author exists with the email, but the password does not match.

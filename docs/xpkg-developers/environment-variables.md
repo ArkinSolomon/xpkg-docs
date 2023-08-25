@@ -1,6 +1,6 @@
 # Environment Variables
 
-This file defines different environment variables used in all X-Pkg software.
+This file defines different environment variables used in all X-Pkg software. Not including all required variables results in undefined behavior.
 
 ## Registry
 
@@ -20,11 +20,13 @@ This file defines different environment variables used in all X-Pkg software.
 - `PASSWORD_RESET_SECRET` -- The secret used to sign password reset tokens.
 - `RECAPTCHA_SECRET` -- The secret shared between reCAPTCHA and the server. 
 - `SERVER_TRUST_HASH` -- The hash of the trust key recieved from the X-Pkg jobs service during the handshake.
+- `NODE_ENV` -- Either "production", "test", or "development". Changes the behavior of the server by enabling or disabling certain features.
 
 ### Optional Variables
 
 - `PORT` -- Only used to changed the port that the registry listens on. Defaults to 443.
 - `RECAPTCHA_DISABLE` -- Set to 1 in order to disable server-side reCAPTCHA validation.
+- `SERVER_ID` -- The unique identifier of the server. If not provided, a default one will be.
 
 ## Jobs Service
 

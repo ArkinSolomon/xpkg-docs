@@ -4,13 +4,15 @@ All routes on the X-Pkg Registry are rate-limited. The amount of requests that c
 
 For accounts that do not require the authorization header, the ip address is used to identify clients. If the authorization header is required, the author's identifier is used. Trying to make a request to a route that requires an authorization header, but does not contain one will not count against the rate limit.
 
+A global rate limit is also enforced, which is an overall rate limit for a single ip address. Only 30 requests can be made within 10 seconds. If this limit is broken, the registry will not accept any more requests from the ip address for 30 seconds.
+
 ## Rate Limiting Headers
 
-Rate limit headers are provided for all requests. Any requests that do not count against rate limiting (like not including an authorization token) do not include these headers.
+Rate limit headers are provided for all requests. Any requests that do not count against rate limiting (such as not including an authorization token) do not include these headers.
 
 ### `Retry-After`
 
-The amount of seconds that the requester should wait before making the next request.
+The amount of seconds until the rate limit resets
 
 ### `X-RateLimit-Limit`
 
@@ -23,3 +25,19 @@ The remaining amount of requests that can be made in this time period.
 ### `X-RateLimit-Reset`
 
 The ISO date string of when the rate limit is reset.
+
+### `X-Retry-After-Global`
+
+The amount of seconds before the global rate limit is reset.
+
+### `X-RateLimit-Limit-Global`
+
+The amount of total requests that can be made.
+
+### `X-RateLimit-Remaining-Global` 
+
+The remaining amount of requests that can be made from this ip address in this time period. 
+
+### `X-RateLimit-Reset-Global`
+
+The ISO date string of when the global rate limit is reset.

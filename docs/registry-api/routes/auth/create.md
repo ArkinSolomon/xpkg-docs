@@ -66,6 +66,16 @@ Sample response:
 
 Sent if the email, display name, or password is invalid, that is: it does not match the length criteria or is an invalid value.
 
+- Content type: `text/plain`
+
+Response body:
+
+- "invalid_or_empty_str" -- sent if any field is not a string, or is an empty string.
+- "bad_len" -- sent if any field violates the given length constraints.
+- "bad_email" -- sent if the provided email address is invalid.
+- "profane" -- sent if the provided name is profane.
+- "is_password" -- sent if the provided password is any case variation of "password".
+
 ## `403` Response
 
 Sent if the email, or display name (both case-insensitive) are already in use.

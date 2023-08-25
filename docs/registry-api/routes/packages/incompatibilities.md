@@ -18,7 +18,7 @@ Request body:
 - version
   - Type: `string`
   - Required: **Yes**
-  - Description: The version fo the package to update the incompatibilities of.
+  - Description: The version of the package to update the incompatibilities of.
 - incompatibilities
   - Type: `[string, string][]`
   - Required: **Yes**
