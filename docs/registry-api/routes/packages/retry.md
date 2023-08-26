@@ -53,15 +53,18 @@ Sent if the request was invalid.
 
 - Content type: `text/plain`
 
-- "missing_form_data" -- form data is missing, or has invalid types.
+Response body:
+
+- "invalid_or_empty_str" -- at least one field that was expected to be a string, is either not a string or is an empty string.
 - "no_file" -- no file was uploaded.
-- "short_id" -- the provided package identifier is too short.
-- "long_id" -- the provided package identifier is too long.
-- "invalid_id" -- the provided package identifier is invalid.
-- "no_version" -- no package version was provided (a blank string).
-- "long_version" -- the package version provided is too long.
-- "invalid_version" -- the package version provided is invalidly formatted.
-- "version_not_exist" -- the package version provided does not exist on the package, meaning no job was failed that had to be retried.
+- "wrong_repo" -- the provided package identifier is a full identifier that references the wrong repository.
+- "invalid_version" -- the package version provided is invalid.
+- "version_not_exist" -- the provided package version does not contain the version specified.
+- "cant_retry" -- the package version specified has already been processed successfully, and can not be retried.
+
+## `403` Response
+
+Sent if the author does not own a package with the provided identifier.
 
 ## Other Responses
 

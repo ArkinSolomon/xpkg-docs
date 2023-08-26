@@ -2,7 +2,7 @@
 
 Get repository metadata.
 
-Rate limit: 10 requests every 10 seconds.
+Rate limit: 4 requests every 10 seconds.
 
 ## Request
 

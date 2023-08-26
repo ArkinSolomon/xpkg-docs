@@ -15,5 +15,4 @@ The **PackageType** enumeration differentiates between different types of packag
 | Livery      | livery     |
 | Other       | other      |
 
-
-
+## VersionStatus

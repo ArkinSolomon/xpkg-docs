@@ -44,21 +44,15 @@ Response sent if the X-Plane selection was successfully updated in the database.
 
 Response body: 
 
-- "missing_form_data" -- sent the request body is missing required fields, or if they are the wrong type.
-- "short_id" -- sent if the provided incompatibility list is too long.
-- "long_id" -- sent if the provided package identifier is too long.
-- "invalid_id" -- sent if the provided package identifier is invalid, or if the identifier references another repository.
-- "no_version" -- sent if the `version` field is just an empty string.
-- "long_version" -- sent if the `version` field is too long.
-- "invalid_version" -- sent if the provided package version is invalidly formatted.
-- "empty_xp_sel" -- the X-Plane version selection string is empty.
-- "long_xp_sel" -- the X-Plane version selection string is too long.
-- "invalid_xp_sel" -- the X-Plane version selection string is invalid.
+- "invalid_or_empty_str" -- at least one field which was expected to be a string is not a string, or is an empty string.
+- "wrong_repo" -- the provided package identifier is a full identifier that references the wrong repository.
+- "invalid_version" -- the provided package version is invalidly formatted.
+- "invalid_selection" -- the X-Plane selection provided is invalid.
 
 Sample response:
 
 ```text
-missing_form_data
+invalid_or_empty_str
 ```
 
 ## Other Responses

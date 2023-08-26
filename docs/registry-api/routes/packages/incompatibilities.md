@@ -49,19 +49,25 @@ Response sent if the request is invalid.
 
 Response body:
 
-- "invalid_form_data" -- sent the request body is missing required fields, or if they are the wrong type.
-- "too_many_incompatibilities" -- sent if the provided incompatibility list is too long.
-- "invalid_id" -- sent if the provided package identifier is invalid, or if the identifier references another repository.
-- "invalid_version" -- sent if the provided package version is formatted invalidly.
-- "bad_inc_tuple" -- sent if the provided incompatibility list has an element in the list that is either not a JSON array, or is a JSON array that does not have a length of two.
-- "invalid_inc_tuple_types" -- sent if the provided incompatibility list has a tuple in the list where at least one element is not a string.
-- "invalid_inc_tuple_id" -- sent if the provided incompatibility list has a tuple in the list where the package identifier is invalid.
-- "dep_or_self_inc" -- sent if the provided incompatibility list declares itself to be incompatibile with itself or with a dependency.
-- "invalid_inc_sel" -- sent if the provided incompatibility list contains a selection that is invalid.
+- "invalid_or_empty_str" -- at least one of either `packageId` or `version` is not a string, or is an empty string.
+- "wrong_repo" -- the provided package identifier is a full identifier that references the wrong repository.
+- "invalid_version" -- the provided package version is invalidly formatted.
+- "bad_inc_arr" -- the incompatibility list provided is either not an array, or is too long.
+- "bad_inc_tuple" -- at least one tuple in the provided incompatibility list has an element in the list that is either not a JSON array, or is a JSON array that does not have a length of two.
+- "invalid_inc_tuple_types" -- at least one tuple in the provided incompatibility list has a tuple in the list where at least one element is not a string.
+- "invalid_inc_tuple_id" -- at least one tuple in the provided incompatibility list has a tuple in the list where the package identifier is invalid.
+- "invalid_inc_sel" -- at least one tuple in the the provided incompatibility list contains a version selection that is invalid.
+- "dep_or_self_inc" -- at least one provided incompatibility within the incompatibility list has a package identifier which refers to itself or a dependency.
+
+Sample response:
+
+```text
+invalid_or_empty_str
+```
 
 ## `401` Response
 
-Response sent if the provided token does not have valid authorization to update the version data of a package. Response may also be sent if the package at the specified version is not found.
+Response sent if the provided token does not have valid authorization to update the version data of a package or if the package at the specified version is not found.
 
 ## Other Responses
 

@@ -8,7 +8,7 @@ A global rate limit is also enforced, which is an overall rate limit for a singl
 
 ## Rate Limiting Headers
 
-Rate limit headers are provided for all requests. Any requests that do not count against rate limiting (such as not including an authorization token) do not include these headers.
+Rate limit headers are provided for all requests. Any requests that do not count against rate limiting (such as not including an authorization token) do not include these headers. Also, being globally rate-limited (by ip) will disable non-global headers.
 
 ### `Retry-After`
 

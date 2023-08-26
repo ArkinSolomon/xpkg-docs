@@ -42,7 +42,7 @@ Sent if the verification token is valid, and if the author has not already verif
 
 ## `400` Response
 
-Sent if no reCAPTCHA validation was provided.
+Sent if no reCAPTCHA validation or verification token was provided.
 
 ## `401` Response
 
@@ -51,6 +51,10 @@ Sent if the verification token is invalid (or expired).
 ## `403` Response
 
 Sent if the verification token is valid, but the author has already verified their email.
+
+## `404` Response
+
+Although not technically a provided response, you may see this response if `verificationToken` is not provided.
 
 ## Other Responses
 

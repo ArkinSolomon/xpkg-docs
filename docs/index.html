@@ -52,6 +52,42 @@
         margin-right: auto;
         width: fit-content;
       }
+
+      blockquote, details{
+        background-color: var(--blockquote-background);
+        border-radius: 3px;
+        border-left: 4px solid var(--theme-color);
+        color: var(--blockquote-text-color);
+      }
+
+      details {
+        min-height: 32px;
+        margin-bottom: 18px;
+        padding-left: 8px;
+        padding-right: 8px;
+      }
+
+      details[open] {
+        padding-bottom: 4px;
+      }
+
+      summary {
+        padding-left: 8px;
+        font-weight: bold;
+        font-size: 12pt;
+        vertical-align: middle;
+        line-height: 32px;
+      }
+
+      pre[data-lang] {
+        border-radius: 4px;
+      }
+
+      details pre[data-lang] {
+        margin-left: auto;
+        margin-right: auto;
+        width: 97%;
+      }
     </style>
 
     <!-- Light mode styles (for code only) -->
@@ -98,7 +134,7 @@
 
         --selection-color: #b4d5fe;
 
-        --blockquote-background: #353c4f;
+        --blockquote-background: #262a33;
         --blockquote-text-color: #bcc3d7;
 
         /* For blocks of language text */

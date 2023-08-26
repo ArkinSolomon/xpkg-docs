@@ -103,32 +103,37 @@ Sent if the request was invalid.
 
 Response body:
 
-- "missing_form_data" -- form data is missing, or has invalid types.
+- "invalid_or_empty_str" -- at least one field that was expected to be a string, is either not a string or is an empty string.
+- "not_bool" -- at least one field that was expected to be a boolean is not a boolean.
 - "no_file" -- no file was uploaded.
-- "short_id" -- the provided package identifier is too short.
-- "long_id" -- the provided package identifier is too long.
-- "invalid_id" -- the provided package identifier is invalid.
-- "no_version" -- no package version was provided.
-- "long_version" -- the package version provided is too long.
-- "invalid_version" -- the package version provided is invalid (a blank string).
+- "wrong_repo" -- the provided package identifier is a full identifier that references the wrong repository.
+- "invalid_version" -- the package version provided is invalid.
+- "invalid_selection" -- the X-Plane selection provided is invalid.
 - "invalid_access_config" -- the access configuration (`isPublic`, `isPrivate`, and `isStored` fields) was invalid.
-- "empty_xp_sel" -- the X-Plane version selection string is empty.
-- "long_xp_sel" -- the X-Plane version selection string is too long.
-- "invalid_xp_sel" -- the X-Plane version selection string is invalid.
-- "list_not_arr" -- either of the lists provided (or both lists) are not arrays.
-- "too_many_deps" -- too many dependencies provided.
-- "too_many_incs" -- too many incompatibilities provided.
-- "vesion_exists" -- the package with the given identifier already has the specified version.
+- "dep_not_str" -- the value provided for `dependencies` is not a string.
+- "inc_not_str" -- the value provided for `incompatibilities` is not a string.
+- "bad_dep_arr" -- the dependency list provided is either not an array, or is too long.
+- "bad_inc_arr" -- the incompatibility list provided is either not an array, or is too long.
+- "version_exists" -- the version specified already exists for the given package.
+- "bad_inc_tuple" -- at least one tuple in the provided incompatibility list has an element in the list that is either not a JSON array, or is a JSON array that does not have a length of two.
+- "invalid_inc_tuple_types" -- at least one tuple in the provided incompatibility list has a tuple in the list where at least one element is not a string.
+- "invalid_inc_tuple_id" -- at least one tuple in the provided incompatibility list has a tuple in the list where the package identifier is invalid.
+- "invalid_inc_sel" -- at least one tuple in the the provided incompatibility list contains a version selection that is invalid.
+- "dep_or_self_inc" -- at least one provided incompatibility within the incompatibility list has a package identifier which refers to itself or a dependency.
+- "bad_dep_tuple" -- at least one tuple in the provided dependency list has an element in the list that is either not a JSON array, or is a JSON array that does not have a length of two.
+- "invalid_dep_tuple_types" -- at least one tuple in the provided dependency list has a tuple in the list where the package identifier that is invalid.
+- "invalid_dep_tuple_id" -- at least one tuple in the provided dependency list contains an invalid package identifier.
+- "self_dep" -- the dependency list contains at least one tuple that attempts to declare itself as a package identifier.
 
 Sample response:
 
 ```text
-missing_form_data
+invalid_or_empty_str
 ```
 
 ## `403` Response
 
-Sent if the author does not own the package with the provided identifier.
+Sent if the author does not own a package with the provided identifier.
 
 ## Other Responses
 

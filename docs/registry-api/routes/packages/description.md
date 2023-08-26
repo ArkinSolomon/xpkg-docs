@@ -41,16 +41,15 @@ Sent if the request was invalid.
 
 Response body:
 
-- "no_desc" -- sent if the `newDescription` field is missing from the request body, or if the field value is an invalid type.
-- "no_id" -- sent if the `packageId` field is missing from the request body, or if the field value is an invalid type.
-- "short_desc" -- sent if the new description is too short.
-- "long_desc" -- sent if the new description is too long.
-- "invalid_id" -- sent if the package identifier provided is invalid or if the full package identifier refers to a different repository.
+- "invalid_or_empty_str" -- the required field is an empty string, or of the wrong type.
+- "wrong_repo" -- the `packageId` field is provided, but invalid, or is a full package identifier for a package that belongs to a different repository.
+- "bad_desc_len" -- the new description length is less than 10 characters long, or greater than 1892 characters long.
+- "profane_desc" -- the new description was detected to contain profanity
 
 Sample response:
 
 ```text
-missing_form_data
+invalid_or_empty_str
 ```
 
 ## `403` Response
