@@ -313,6 +313,7 @@
       .token.boolean,
       .token.number,
       .token.constant,
+      .token.command,
       .token.symbol,
       .token.deleted {
         color: var(--code-theme-tag)
@@ -321,6 +322,7 @@
       .token.selector,
       .token.attr-name,
       .token.string,
+      .token.pathpart,
       .token.char,
       .token.builtin,
       .token.inserted {
@@ -335,6 +337,7 @@
         color: var(--code-theme-operator)
       }
 
+      .token.envvar,
       .token.atrule,
       .token.attr-value,
       .token.keyword {
@@ -398,6 +401,75 @@
         $('.app-name-link>img').ready(function () {
           console.log($('.app-name-link img').attr('src', '/_media/sidebar-dark.png'))
         });
+      }
+    </script>
+    <script>
+      Prism.languages.ska = {
+        'comment': /#.*$/m,
+        'variable': /\$\w[\w|\d_]*/,
+        'constant': /%\w[\w\d_]*/,
+        'envvar': /@\w[\w\d_]*/,
+        'builtin': [
+          /print(?=\s*\()/,
+          /list(?=\s*\()/,
+          /range(?=\s*\()/,
+          /exit(?=\s*\()/,
+          /type(?=\s*\()/,
+          /str(?=\s*\()/
+        ],
+        'function': /\w(\w|\d)*(?=\n*\(.*\))/m,
+        'string': /"(?:[^"\\]|\\.)*"/,
+        'punctuation': [
+          /{/,
+          /}/,
+          /,/,
+          /\$?\(/,
+          /\)/
+        ],
+        'number': /[+-]?(?:(?:[+-]?\d*\.?\d+e[+-]?\d+)|(?:(?:\d+)?\.\d+)|\d+)(?!\s*=(?!=))/,
+        'operator': [
+          /\+/,
+          /\-/,
+          /[<>=]=?/,
+          /\.\.\./,
+          /\*/,
+          /\//,
+          /&/,
+          /\|/,
+          /!/
+        ],
+        'keyword': [
+          /func/,
+          /for/,
+          /while/,
+          /if/,
+          /else\s+if/,
+          /else/,
+          /return/,
+          /continue/,
+          /break/,
+          /\s+in\s+/,
+          /NULL/,
+          /TRUE/,
+          /FALSE/
+        ],
+        'command': [
+          /MKDIRS/,
+          /MKDIR/,
+          /RENAME/,
+          /MOVE/,
+          /WRITE/,
+          /READ/,
+          /APPEND/,
+          /ISFILE/,
+          /ISDIR/,
+          /DELETE/,
+          /EXISTS/,
+          /PATH/,
+          /TO/,
+          /COPY/
+        ],
+        'pathpart': /(?<!\/).+(?!\/)/
       }
     </script>
   </body>

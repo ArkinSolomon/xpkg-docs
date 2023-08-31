@@ -15,7 +15,7 @@ Request body:
   - Type: `string`
   - Required: **Yes**
   - Description: The full or partial identifier of the package to update the incompatibilities of.
-- version
+- packageVersion
   - Type: `string`
   - Required: **Yes**
   - Description: The version of the package to update the incompatibilities of.
@@ -50,7 +50,8 @@ Response sent if the request is invalid.
 Response body:
 
 - "invalid_or_empty_str" -- at least one of either `packageId` or `version` is not a string, or is an empty string.
-- "wrong_repo" -- the provided package identifier is a full identifier that references the wrong repository.
+- "invalid_id_or_repo" -- the provided package identifier is invalid, or is a full package identifier for a package that belongs to a different repository.
+- "bad_version_len" -- the version provided is too long.
 - "invalid_version" -- the provided package version is invalidly formatted.
 - "bad_inc_arr" -- the incompatibility list provided is either not an array, or is too long.
 - "bad_inc_tuple" -- at least one tuple in the provided incompatibility list has an element in the list that is either not a JSON array, or is a JSON array that does not have a length of two.

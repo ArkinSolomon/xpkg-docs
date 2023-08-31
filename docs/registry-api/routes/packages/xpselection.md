@@ -45,8 +45,10 @@ Response sent if the X-Plane selection was successfully updated in the database.
 Response body: 
 
 - "invalid_or_empty_str" -- at least one field which was expected to be a string is not a string, or is an empty string.
-- "wrong_repo" -- the provided package identifier is a full identifier that references the wrong repository.
+- "invalid_id_or_repo" -- the provided package identifier is invalid, or is a full package identifier for a package that belongs to a different repository.
+- "bad_version_len" -- the version provided is too long.
 - "invalid_version" -- the provided package version is invalidly formatted.
+- "bad_sel_len" -- the X-Plane selection provided is too long.
 - "invalid_selection" -- the X-Plane selection provided is invalid.
 
 Sample response:
@@ -55,6 +57,10 @@ Sample response:
 invalid_or_empty_str
 ```
 
+## `401` Response
+
+Response sent if the package at the specified version does not exist, or the client does not have authorization to modify it.
+
 ## Other Responses
 
-`401`, `409`, `429`, `500`
+`409`, `429`, `500`

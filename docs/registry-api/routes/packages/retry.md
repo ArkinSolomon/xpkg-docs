@@ -57,7 +57,8 @@ Response body:
 
 - "invalid_or_empty_str" -- at least one field that was expected to be a string, is either not a string or is an empty string.
 - "no_file" -- no file was uploaded.
-- "wrong_repo" -- the provided package identifier is a full identifier that references the wrong repository.
+- "invalid_id_or_repo" -- the provided package identifier is invalid, or is a full package identifier for a package that belongs to a different repository.
+- "bad_version_len" -- the version provided is too long.
 - "invalid_version" -- the package version provided is invalid.
 - "version_not_exist" -- the provided package version does not contain the version specified.
 - "cant_retry" -- the package version specified has already been processed successfully, and can not be retried.

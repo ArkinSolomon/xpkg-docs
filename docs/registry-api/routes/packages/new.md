@@ -63,7 +63,7 @@ Sent if the request was invalid.
 Response body:
 
 - "invalid_or_empty_str" -- at least one field provided is either not a string or is an empty string.
-- "full_id" -- the package identifier provided is a full identifier.
+- "full_id_or_invalid" -- the package identifier provided is a full identifier, or it is invalid.
 - "profane_name" -- the name provided was detected to contain profanity.
 - "invalid_name" -- the name provided is invalid.
 - "bad_desc_len" -- the description length is less than 10 characters long, or greater than 1892 characters long.

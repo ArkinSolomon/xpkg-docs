@@ -58,7 +58,7 @@ Response body:
         - version
           - Type: `string`
           - Required: **Yes**
-          - Description: The string of the version.
+          - Description: The version string.
         - isPublic
           - Type: `boolean`
           - Required: **Yes**
@@ -74,7 +74,7 @@ Response body:
         - status
           - Type: [`VersionStatus`](/registry-api/enumerations#VersionStatus)
           - Required: **Yes**
-          - Description: The current state of the package.
+          - Description: The current status of the package.
         - dependencies
           - Type: `[string, string][]`
           - Required: **Yes**

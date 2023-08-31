@@ -38,3 +38,7 @@ Versions are ordered first by their major versions, then by their minor versions
 ## Version Completion
 
 You may omit different parts of a version, and it will be automatically completed (assumed). If you only provide a major version, both the minor versions and patch versions are assumed be zero. Likewise, if you only provide a major and minor version, the patch number is assumed to be zero. You can not provide a minor version without providing a major version, and likewise a patch version can not be provided without providing a major version. Pre-release versions and types must be explicitly stated and can not be assumed.
+
+## Reference Strings
+
+Now that you know about full and partial package identifiers, as well as versions, a single version of a package can be referenced with the form: `repo/author.package.variant@version`. For instance: `xpkg/example.package1@3.2.6b4`.

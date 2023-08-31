@@ -42,7 +42,8 @@ Sent if the request was invalid.
 Response body:
 
 - "invalid_or_empty_str" -- the required field is an empty string, or of the wrong type.
-- "wrong_repo" -- the `packageId` field is provided, but invalid, or is a full package identifier for a package that belongs to a different repository.
+- "bad_version_len" -- the version provided is too long.
+- "invalid_id_or_repo" -- the `packageId` field is provided, but invalid, or is a full package identifier for a package that belongs to a different repository.
 - "bad_desc_len" -- the new description length is less than 10 characters long, or greater than 1892 characters long.
 - "profane_desc" -- the new description was detected to contain profanity
 

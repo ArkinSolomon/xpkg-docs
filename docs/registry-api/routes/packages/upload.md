@@ -106,8 +106,10 @@ Response body:
 - "invalid_or_empty_str" -- at least one field that was expected to be a string, is either not a string or is an empty string.
 - "not_bool" -- at least one field that was expected to be a boolean is not a boolean.
 - "no_file" -- no file was uploaded.
-- "wrong_repo" -- the provided package identifier is a full identifier that references the wrong repository.
+- "invalid_id_or_repo" -- the provided package identifier is invalid, or is a full package identifier for a package that belongs to a different repository.
+- "bad_version_len" -- the version provided is too long.
 - "invalid_version" -- the package version provided is invalid.
+- "bad_sel_len" -- the X-Plane selection provided is too long.
 - "invalid_selection" -- the X-Plane selection provided is invalid.
 - "invalid_access_config" -- the access configuration (`isPublic`, `isPrivate`, and `isStored` fields) was invalid.
 - "dep_not_str" -- the value provided for `dependencies` is not a string.
