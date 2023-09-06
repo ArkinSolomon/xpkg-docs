@@ -7,7 +7,7 @@
   - [Package Types](package-developers/package-types.md)
 - [X-pkg Developers](xpkg-developers/README.md)
   - [Authorization Tokens](xpkg-developers/authorization-tokens.md)
-  - [Package Types](xpkg-developers/file-types.md)
+  - [File Types](xpkg-developers/file-types.md)
   - [Package Manifest](xpkg-developers/package-manifest.md)
   - [Environment Variables](xpkg-developers/environment-variables.md)
   - [Jobs Service](xpkg-developers/jobs-service.md)
