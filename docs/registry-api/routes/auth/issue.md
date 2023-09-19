@@ -30,15 +30,19 @@ Request body:
 - versionUploadPackages
   - Type: `string[]`
   - Required: **No**
-  - Description: The package identifiers of packages that the token will be allowed to upload versions for. The author must own all of the packages the array contains. Must be included with a length greater than zero if the [UploadVersionSpecificPackages](package-developers/api-tokens#UploadVersionSpecificPackages) permission is provided. May be included as an empty array if this permission is not provided, however it must have a length of zero. Maximum length of 32.
+  - Description: The package identifiers of packages that the token will be allowed to upload versions for. The author must own all of the packages the array contains. Must be included with a length greater than zero if the [UploadVersionSpecificPackages](package-developers/api-tokens#UploadVersionSpecificPackages) permission is provided. May be included if this permission is not provided, however it must have a length of zero. Maximum length of 32.
 - descriptionUpdatePackages
   - Type: `string[]`
   - Required: **No**
-  - Description: The package identifiers of packages that the token will be allowed to modify the description of. The author must own all of the packages the array contains. Must be included with a length greater than zero if the [UpdateDescriptionSpecificPackages](package-developers/api-tokens#UpdateDescriptionSpecificPackages) permission is provided. May be included as an empty array if this permission is not provided, however it must have a length of zero. Maximum length of 32.
+  - Description: The package identifiers of packages that the token will be allowed to modify the description of. The author must own all of the packages the array contains. Must be included with a length greater than zero if the [UpdateDescriptionSpecificPackages](package-developers/api-tokens#UpdateDescriptionSpecificPackages) permission is provided. May be included if this permission is not provided, however it must have a length of zero. Maximum length of 32.
 - updateVersionDataPackages
   - Type: `string[]`
   - Required: **No**
-  - Description: The package identifiers of packages that the token will be allowed to update the package data of. The author must own all of the packages the array contains. Must be included with a length greater than zero if the [UpdateVersionDataSpecificPackages](package-developers/api-tokens#UpdateVersionDataSpecificPackages) permission is provided. May be included as an empty array if this permission is not provided, however it must have a length of zero. Maximum length of 32.
+  - Description: The package identifiers of packages that the token will be allowed to update the package data of. The author must own all of the packages the array contains. Must be included with a length greater than zero if the [UpdateVersionDataSpecificPackages](package-developers/api-tokens#UpdateVersionDataSpecificPackages) permission is provided. May be included if this permission is not provided, however it must have a length of zero. Maximum length of 32.
+- viewAnalyticsPackages
+  - Type: `string[]`
+  - Required: **No**
+  - Description: The package identifiers of packages that the token will be allowed to view the analytics of. The author must own all of the packages the array contains. Must be included with a length greater than zero if the [ViewAnalyticsSpecificPackages](package-developers/api-tokens#ViewAnalyticsSpecificPackages) permission is provided. May be included if this permission is not provided, however it must have a length of zero. Maximum length of 32.
 
 Sample request:
 
@@ -51,7 +55,8 @@ Sample request:
   "versionUploadPackages": [
     "example.package1",
     "example.package2"
-  ]
+  ],
+  "viewAnalyticsPackages": []
 }
 ```
 
@@ -110,4 +115,4 @@ missing_form_data
 
 ## Other responses
 
-`401`, `409`, `429`, `500` 
+`401`, `409`, `429`, `500`

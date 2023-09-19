@@ -23,7 +23,7 @@ The majority of routes deals with a response schema. The schema may represent a 
   - Required: **Yes**/**No**
   - Description: Additional information about the field.
 
-The type is typically a standard [JSON data type](https://www.w3schools.com/js/js_json_datatypes.asp).  Arrays are specified with the type, then square brackets. For instance, an array of strings will be denoted as `string[]`. Objects will simply have the type of `object`. If the object has a specific schema, it will be nested under the field. Similarly an array of objects will be specified `object[]`, with the schema for each element of the array nested under the field.
+The type is typically a standard [JSON data type](https://www.w3schools.com/js/js_json_datatypes.asp).  Arrays are specified with the type, then square brackets. For instance, an array of strings will be denoted as `string[]`. Objects will simply have the type of `object`. If the object has a specific schema, it will be nested under the field. Similarly an array of objects will be specified `object[]`, with the schema for each element of the array nested under the field. If the entire JSON response is an array, it will be denoted with a bullet at the top which says "Array."
 
 Tuples are also denoted in the schema. A tuple is just an array of a fixed length. These are denoted with a comma-seperated list of the types wrapped in square brackets. For instance, a number tuple of two can be represented as `[number, number]`. There can also be an array of tuples, such as `[number, number][]`.
 

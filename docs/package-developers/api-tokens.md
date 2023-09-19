@@ -49,3 +49,11 @@ The bearer of the token may update the X-Plane selection as well as the incompat
 ### UpdateVersionDataSpecificPackages
 
 The bearer of the token may update the X-Plane selection as well as the incompatibilities of specified packages. Note that all versions of the specified packages may be updated by the bearer of the token.
+
+### ViewAnalyticsAnyPackage
+
+The bearer of the token may view analytics for any package at any version. Can not be used with [ViewAnalyticsAnyPackage](#ViewAnalyticsAnyPackage).
+
+### ViewAnalytcisSpecificPackages
+
+The bearer of the token may view analytics for specific packages. Can not be used with [ViewAnalyticsAnyPackage](#ViewAnalyticsAnyPackage).

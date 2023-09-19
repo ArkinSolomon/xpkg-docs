@@ -17,6 +17,7 @@
   - [Custom Headers](registry-api/custom-headers.md)
   - [Rate Limits](registry-api/rate-limits.md)
   - [Enumerations](registry-api/enumerations.md)
+  - [GET `/analytics/`](registry-api/routes/analytics/README.md)
   - [GET `/account/data/`](registry-api/routes/account/data.md)
   - [GET `/account/packages/`](registry-api/routes/account/packages.md)
   - [PATCH `/account/changename/`](registry-api/routes/account/changename.md)

@@ -1,4 +1,4 @@
-# GET `/info/:packageId/:version`
+# GET `/info/:packageId/:packageVersion`
 
 Get detailed information about a specific package version.
 
@@ -12,7 +12,7 @@ Rate limit: 10 requests every 2 seconds.
 Route parameters:
 
 - `packageId` -- the partial identifier of the package to get the information of.
-- `version` -- the version of the package to get the information of.
+- `packageVersion` -- the version of the package to get the information of.
 
 Sample route:
 

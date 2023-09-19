@@ -24,25 +24,37 @@ Request body:
   - Required: **Yes**
   - Description: The version selection of the compatible X-Plane versions. May not be longer than 256 characters.
 - isPublic
-  - Type: `boolean`
+  - Type: `STR<boolean>`
   - Required: **Yes**
   - Description: True if the package version is public. Can not be true if `isPrivate` is true, or if `isStored` is false.
 - isPrivate
-  - Type: `boolean`
+  - Type: `STR<boolean>`
   - Required: **Yes**
   - Description: True if the package version is public. Can not be true if `isPublic` is true.
 - isStored
-  - Type: `boolean`
+  - Type: `STR<boolean>`
   - Required: **Yes**
   - Description: True if the package version should be permanently stored on X-Pkg servers. Can not be false if `isPublic` is true.
 - dependencies
   - Type: `STR<[string, string][]>`
   - Required: **Yes**
-  - Description: A JSON string which is an array of tuples, where the first element of each tuple is the full identifier of the package which is a dependency, and the second element is the version selection string that the dependency must satisfy. Partial identifiers will have the `xpkg/` repository prefixed. Maximum length of 128 tuples.
+  - Description: A JSON string which is an array of tuples, where the first element of each tuple is the full identifier of the package which is a dependency, and the second element is the version selection string that the dependency must satisfy. Partial identifiers will be assumed to be part of the X-Pkg registry, that is, they will have the `xpkg/` repository prefixed. Maximum length of 128 tuples.
 - incompatibilities
   - Type: `STR<[string, string][]>`
   - Required: **Yes**
-  - Description: A JSON string which is an array of tuples, where the first element of each tuple is the full identifier of the package which is incompatible, and the second element is the version selection string of all versions that are incompatible. Partial identifiers will have the `xpkg/` repository prefixed. Maximum length of 128 tuples.
+  - Description: A JSON string which is an array of tuples, where the first element of each tuple is the full identifier of the package which is incompatible, and the second element is the version selection string of all versions that are incompatible. Partial identifiers will be assumed to be part of the X-Pkg registry, that is, they will have the `xpkg/` repository prefixed. Maximum length of 128 tuples.
+- supportsMacOS
+  - Type: `STR<boolean>`
+  - Required: **Yes**
+  - Description: True if this package version supports MacOS.
+- supportsWindows
+  - Type: `STR<boolean>`
+  - Required: **Yes**
+  - Description: True if this package version supports Windows.
+- supportsLinux
+  - Type: `STR<boolean>`
+  - Required: **Yes**
+  - Description: True if this package version supports Linux.
 - file
   - Type: `file`
   - Required: **Yes**
@@ -84,6 +96,18 @@ Content-Disposition: form-data; name="incompatibilities"
 
 []
 ------WebKitFormBoundaryc5i0j0B6oJS681gS
+Content-Disposition: form-data; name="supportsMacOS"
+
+false
+------WebKitFormBoundaryc5i0j0B6oJS681gS
+Content-Disposition: form-data; name="supportsWindows"
+
+true
+------WebKitFormBoundaryc5i0j0B6oJS681gS
+Content-Disposition: form-data; name="supportsLinux"
+
+true
+------WebKitFormBoundaryc5i0j0B6oJS681gS
 Content-Disposition: form-data; name="file"; filename="Example Package.zip"
 Content-Type: application/zip
 
@@ -112,6 +136,7 @@ Response body:
 - "bad_sel_len" -- the X-Plane selection provided is too long.
 - "invalid_selection" -- the X-Plane selection provided is invalid.
 - "invalid_access_config" -- the access configuration (`isPublic`, `isPrivate`, and `isStored` fields) was invalid.
+- "plat_supp" -- no platform (operating system) was declared as supported.
 - "dep_not_str" -- the value provided for `dependencies` is not a string.
 - "inc_not_str" -- the value provided for `incompatibilities` is not a string.
 - "bad_dep_arr" -- the dependency list provided is either not an array, or is too long.
