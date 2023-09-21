@@ -30,6 +30,10 @@ The schema of the token's payload is as follows:
   - Type: `string[]`
   - Required: **Yes** 
   - A list of package identifiers (that the author owns) which the bearer of the token has permission to update the version data of of. Empty if the [UpdateVersionDataSpecificPackages](/package-developers/api-tokens#UpdateVersionDataSpecificPackages) permission is not granted.
+- viewAnalyticsPackages
+  - Type: `string[]`
+  - Required: **Yes** 
+  - A list of package identifiers (that the author owns) which the bearer of the token has permission to update the version data of of. Empty if the [ViewAnalyticsSpecificPackages](/package-developers/api-tokens#ViewAnalyticsSpecificPackages) permission is not granted.
 - tokenSession
   - Type: `string`
   - Required: **No**

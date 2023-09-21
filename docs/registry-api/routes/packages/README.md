@@ -69,6 +69,22 @@ Response body:
           - Type: `string`
           - Required: **Yes**
           - Description: The version selection string of the X-Plane versions that this package is compatible with.
+        - platforms
+          - Type: `Object`
+          - Required: **Yes**
+          - Description: The platforms or operating systems that this version of the package supports.
+            - macOS
+              - Type: `boolean`
+              - Required: **Yes**
+              - Description: True if MacOS is supported by this package version.
+            - windows
+              - Type: `boolean`
+              - Required: **Yes**
+              - Description: True if Windows is supported by this package version.
+            - linux
+              - Type: `boolean`
+              - Required: **Yes**
+              - Description: True if Linux is supported by this package version.
 
 Sample response:
 
@@ -90,7 +106,12 @@ Sample response:
             ["example.package2", "1.2-"]
           ],
           "incompatibilities": [],
-          "xplaneSelection": "*"
+          "xplaneSelection": "*",
+          "platforms": {
+            "macOS": false,
+            "windows": true,
+            "linux": false
+          }
         }
       ]
     }
